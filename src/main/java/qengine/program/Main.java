@@ -45,18 +45,28 @@ final class Main {
 	 * Votre répertoire de travail où vont se trouver les fichiers à lire
 	 */
 	static final String workingDir = "data/";
+	public static String outputFile;
+	public static String useJena;
 
 	/**
 	 * Fichier contenant les requêtes sparql
 	 */
-	static final String queryFile = workingDir + "STAR_ALL_workload.queryset";
+	static String queryFile = workingDir + "STAR_ALL_workload.queryset";
 
 	/**
 	 * Fichier contenant des données rdf
 	 */
-	static final String dataFile = workingDir + "100K.nt";
+	static String dataFile = workingDir + "100K.nt";
 
 	// ========================================================================
+
+	static String queries = queryFile;
+	static String data = dataFile;
+	static String output = "data.csv";
+	static boolean jena = true;
+
+	static int warm = 0;
+	static boolean shuffle = true;
 
 	/**
 	 * Méthode utilisée ici lors du parsing de requête sparql pour agir sur l'objet obtenu.
@@ -89,13 +99,7 @@ final class Main {
 		
 		MainRDFHandler mrh = new MainRDFHandler();
 
-		String queries = queryFile;
-		String data = dataFile;
-		String output = "data.csv";
-		boolean jena = true;
 
-		int warm = 0;
-		boolean shuffle = true;
 		long startTimeDATA = System.nanoTime();
 		parseData(mrh, queries);
 		long stopTimeDATA = System.nanoTime();
