@@ -63,7 +63,7 @@ final class Main {
 	static String queries = queryFile;
 	static String data = dataFile;
 	static String output = "data.csv";
-	static boolean jena = false;
+	static boolean jena = true;
 
 	static int warm = 0;
 	static boolean shuffle = false;
@@ -154,12 +154,13 @@ final class Main {
 		long startTimeJena = System.nanoTime();
 		if (jena){
 			JenaTest jenaTest = new JenaTest(dataFile);
-			ArrayList<ArrayList<String>> jenaOutput = new ArrayList<ArrayList<String>>();
+			List<List<String>> jenaOutput = new ArrayList<>();
 			for(String queryString:  querieStrings) {
 				List<String> output = jenaTest.processAQuery(queryString.toString());
 				System.out.println("JENA Result " + output);
+				jenaOutput.add(output);
 			}
-			jenaTest.getErrors(jenaTest.CompareWithJena(jenaOutput,myOutput));
+			System.out.println(jenaTest.getErrors(jenaTest.CompareWithJena(jenaOutput,myOutput)));
 		}
 		long stopTimeJena = System.nanoTime();
 		float timeJena = (float)(stopTimeJena - startTimeJena)/1000000;

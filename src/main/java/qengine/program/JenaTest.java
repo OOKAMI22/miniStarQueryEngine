@@ -39,7 +39,7 @@ public class JenaTest {
         //System.out.println(results.size());
         return results;
     }
-    public List<Boolean> CompareWithJena(ArrayList<ArrayList<String>> jenaOutput, ArrayList<ArrayList<String>> myOutput) {
+    public List<Boolean> CompareWithJena(List<List<String>> jenaOutput, ArrayList<ArrayList<String>> myOutput) {
         List<Boolean>  result = new ArrayList<Boolean>();
         Boolean tmp;
         for(int i = 0; i<jenaOutput.size();i++){
