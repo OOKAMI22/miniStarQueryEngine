@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Main-Class: qengine.program.JarCommander
+Class-Path: jackson-core-2.11.4.jar collection-0.7.jar jcl-over-slf4j-1.
+ 7.31.jar rdf4j-repository-manager-3.7.3.jar commons-lang3-3.12.0.jar lo
+ g4j-1.2.17.jar rdf4j-repository-event-3.7.3.jar rdf4j-queryparser-api-3
+ .7.3.jar rdf4j-http-protocol-3.7.3.jar httpcore-4.4.13.jar javax.activa
+ tion-api-1.2.0.jar rdf4j-rio-trig-3.7.3.jar rdf4j-rio-datatypes-3.7.3.j
+ ar commons-text-1.9.jar httpclient-4.5.13.jar jena-core-3.9.0.jar slf4j
+ -api-1.7.31.jar rdf4j-rio-api-3.7.3.jar jena-base-3.9.0.jar jena-cmds-3
+ .9.0.jar jena-dboe-base-3.9.0.jar rdf4j-model-api-3.7.3.jar rdf4j-repos
+ itory-sparql-3.7.3.jar rdf4j-queryparser-serql-3.7.3.jar jsonld-java-0.
+ 13.3.jar rdf4j-rio-trix-3.7.3.jar rdf4j-rio-rdfjson-3.7.3.jar rdf4j-rio
+ -binary-3.7.3.jar jackson-databind-2.11.4.jar listenablefuture-9999.0-e
+ mpty-to-avoid-conflict-with-guava.jar libthrift-0.10.0.jar rdf4j-reposi
+ tory-contextaware-3.7.3.jar jena-dboe-transaction-3.9.0.jar commons-io-
+ 2.8.0.jar rdf4j-http-client-3.7.3.jar junit.jar rdf4j-rio-ntriples-3.7.
+ 3.jar slf4j-log4j12-1.7.25.jar jena-iri-3.9.0.jar commons-compress-1.17
+ .jar rdf4j-repository-http-3.7.3.jar jena-tdb-3.9.0.jar guava-30.1.1-jr
+ e.jar jena-shaded-guava-3.9.0.jar rdf4j-queryresultio-sparqlxml-3.7.3.j
+ ar rdf4j-queryresultio-sparqljson-3.7.3.jar commons-collections4-4.2.ja
+ r httpclient-cache-4.5.13.jar failureaccess-1.0.1.jar jena-dboe-index-3
+ .9.0.jar rdf4j-model-3.7.3.jar commons-csv-1.5.jar rdf4j-queryresultio-
+ text-3.7.3.jar rdf4j-rio-rdfxml-3.7.3.jar jena-dboe-trans-data-3.9.0.ja
+ r rdf4j-util-3.7.3.jar jackson-annotations-2.11.4.jar rdf4j-queryalgebr
+ a-model-3.7.3.jar rdf4j-queryresultio-binary-3.7.3.jar rdf4j-sparqlbuil
+ der-3.7.3.jar rdf4j-rio-nquads-3.7.3.jar rdf4j-model-vocabulary-3.7.3.j
+ ar jaxb-api-2.3.1.jar rdf4j-rio-turtle-3.7.3.jar commons-beanutils-1.9.
+ 3.jar commons-codec-1.13.jar jena-arq-3.9.0.jar rdf4j-repository-api-3.
+ 7.3.jar rdf4j-rio-n3-3.7.3.jar jena-tdb2-3.9.0.jar rdf4j-queryparser-sp
+ arql-3.7.3.jar rdf4j-queryrender-3.7.3.jar rdf4j-rio-jsonld-3.7.3.jar r
+ df4j-rio-languages-3.7.3.jar rdf4j-query-3.7.3.jar commons-collections-
+ 3.2.2.jar rdf4j-queryresultio-api-3.7.3.jar jena-rdfconnection-3.9.0.ja
+ r commons-cli-1.4.jar opencsv-4.6.jar
+

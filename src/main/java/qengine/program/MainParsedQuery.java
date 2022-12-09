@@ -1,4 +1,5 @@
 package qengine.program;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -87,6 +88,7 @@ public class MainParsedQuery {
 	
 	public void evaluateAQuery(Hexastore hex) {
 		ArrayList<Integer> result = evaluateAPattern(processedQuery.get(0),hex);
+		ArrayList<ArrayList<String>> output = new ArrayList<>();
 		
 		for(int i =1;i < processedQuery.size();i++) {
 			result.retainAll(evaluateAPattern(processedQuery.get(i),hex));

@@ -46,12 +46,12 @@ final class Main {
 	 */
 	static final String workingDir = "data/";
 	public static String outputFile;
-	public static String useJena;
+
 
 	/**
 	 * Fichier contenant les requêtes sparql
 	 */
-	static String queryFile = workingDir + "STAR_ALL_workload.queryset";
+	static String queryFile = workingDir + "sample_query.queryset";
 
 	/**
 	 * Fichier contenant des données rdf
@@ -63,10 +63,10 @@ final class Main {
 	static String queries = queryFile;
 	static String data = dataFile;
 	static String output = "data.csv";
-	static boolean jena = true;
+	static boolean jena = false;
 
 	static int warm = 0;
-	static boolean shuffle = true;
+	static boolean shuffle = false;
 
 	/**
 	 * Méthode utilisée ici lors du parsing de requête sparql pour agir sur l'objet obtenu.
@@ -93,6 +93,7 @@ final class Main {
 	 * Entrée du programme
 	 */
 	public static void main(String[] args) throws Exception {
+		System.out.println("je suis modifié");
 		
 		long startTimeProgram = System.nanoTime();
 		
@@ -117,18 +118,21 @@ final class Main {
 		// traiter les queries apres le shuffle
 		MainParsedQuery mpq = new MainParsedQuery();
 		SPARQLParser sparqlParser = new SPARQLParser();
+		// pour stocker les reponse aux requête
+		ArrayList<ArrayList<String>> myOutput = new ArrayList<ArrayList<String>>();
+
 		// choisir un nombre de requetes et les traiter aléatoirement
 		if(warm > 0){
 			for(int i=0; i<warm; i++) {
 				int random = new Random().nextInt(querieStrings.size());
-				ParsedQuery query = sparqlParser.parseQuery(querieStrings.get(random), baseURI);
+				ParsedQuery query = sparqlParser.parseQuery(querieStrings.get(random), baseURI,myOutput);
 				mpq.parseAQuery(query,mrh.hex.dico) ; 
 				mpq.evaluateAQuery(mrh.hex);}
 			
 		}
 		else {
 			for (String queryString : querieStrings) {
-				ParsedQuery query = sparqlParser.parseQuery(queryString.toString(), baseURI);
+				ParsedQuery query = sparqlParser.parseQuery(queryString.toString(), baseURI,myOutput);
 				mpq.parseAQuery(query, mrh.hex.dico);
 				//System.out.println("Dico dans parse query"+mrh.hex.dico.map);
 				mpq.evaluateAQuery(mrh.hex);
@@ -151,7 +155,8 @@ final class Main {
 		if (jena){
 			JenaTest jenaTest = new JenaTest(dataFile);
 			for(String queryString:  querieStrings) {
-				System.out.println("JENA Result " + jenaTest.processAQuery(queryString.toString()));
+				//System.out.println("JENA Result " + jenaTest.processAQuery(queryString.toString()));
+				jenaTest.CompareWithJena()
 			}
 		}
 		long stopTimeJena = System.nanoTime();
@@ -168,16 +173,7 @@ final class Main {
 		writer.close();
 	}
 	
-public static int indexeOf(String[] args, String arg) {
-	for(int i = 0; i < args.length;i++) {
-		if(args[i] == arg) {
-			return i;
-		}
-	}
-	return -1;
-	
-	
-}
+
 	// ========================================================================
 
 	/**

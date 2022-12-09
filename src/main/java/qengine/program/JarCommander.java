@@ -40,15 +40,6 @@ public class JarCommander {
      * @throws ParseException
      */
     public static CommandLine getCommandLine(String[] args, Options options, CommandLineParser parser) throws ParseException {
-        /*
-        java -jar rdfengine
-            -queries "/chemin/vers/dossier/requetes"
-            -data "/chemin/vers/fichier/donnees"
-            -output "/chemin/vers/dossier/sortie"
-            -Jena : active la vérification de la correction et complétude du système en utilisant Jena comme un oracle
-            -warm "X" : utilise un échantillon des requêtes en entrée (prises au hasard) correspondant au pourcentage "X" pour chauffer le système
-            -shuffle : considère une permutation aléatoire des requêtes en entrée
-        */
         options.addOption("queries", true, "/chemin/vers/dossier/requetes");
         options.addOption("data", true, "/chemin/vers/fichier/donnees");
         options.addOption("output", true, "/chemin/vers/dossier/sortie");
