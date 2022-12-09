@@ -125,17 +125,17 @@ final class Main {
 		if(warm > 0){
 			for(int i=0; i<warm; i++) {
 				int random = new Random().nextInt(querieStrings.size());
-				ParsedQuery query = sparqlParser.parseQuery(querieStrings.get(random), baseURI,myOutput);
+				ParsedQuery query = sparqlParser.parseQuery(querieStrings.get(random), baseURI);
 				mpq.parseAQuery(query,mrh.hex.dico) ; 
-				mpq.evaluateAQuery(mrh.hex);}
+				mpq.evaluateAQuery(mrh.hex,myOutput);}
 			
 		}
 		else {
 			for (String queryString : querieStrings) {
-				ParsedQuery query = sparqlParser.parseQuery(queryString.toString(), baseURI,myOutput);
+				ParsedQuery query = sparqlParser.parseQuery(queryString.toString(), baseURI);
 				mpq.parseAQuery(query, mrh.hex.dico);
 				//System.out.println("Dico dans parse query"+mrh.hex.dico.map);
-				mpq.evaluateAQuery(mrh.hex);
+				mpq.evaluateAQuery(mrh.hex,myOutput);
 				//processAQuery(query);
 			}
 			
@@ -154,10 +154,12 @@ final class Main {
 		long startTimeJena = System.nanoTime();
 		if (jena){
 			JenaTest jenaTest = new JenaTest(dataFile);
+			ArrayList<ArrayList<String>> jenaOutput = new ArrayList<ArrayList<String>>();
 			for(String queryString:  querieStrings) {
-				//System.out.println("JENA Result " + jenaTest.processAQuery(queryString.toString()));
-				jenaTest.CompareWithJena()
+				List<String> output = jenaTest.processAQuery(queryString.toString());
+				System.out.println("JENA Result " + output);
 			}
+			jenaTest.getErrors(jenaTest.CompareWithJena(jenaOutput,myOutput));
 		}
 		long stopTimeJena = System.nanoTime();
 		float timeJena = (float)(stopTimeJena - startTimeJena)/1000000;

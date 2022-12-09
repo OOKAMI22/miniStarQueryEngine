@@ -86,9 +86,9 @@ public class MainParsedQuery {
 		return result;		
 	}
 	
-	public void evaluateAQuery(Hexastore hex) {
+	public void evaluateAQuery(Hexastore hex,ArrayList<ArrayList<String>> myOutput) {
 		ArrayList<Integer> result = evaluateAPattern(processedQuery.get(0),hex);
-		ArrayList<ArrayList<String>> output = new ArrayList<>();
+		ArrayList<String> output = new ArrayList<>();
 		
 		for(int i =1;i < processedQuery.size();i++) {
 			result.retainAll(evaluateAPattern(processedQuery.get(i),hex));
@@ -96,9 +96,11 @@ public class MainParsedQuery {
 		int j=0;
 		for(Integer i : result) {
 			j++;
-		System.out.println("résultat "+j+"  : "+Dictionnaire.getKey(hex.dico.map,i));
+			output.add(Dictionnaire.getKey(hex.dico.map,i));
+			System.out.println("résultat "+j+"  : "+Dictionnaire.getKey(hex.dico.map,i));
 		}
 		System.out.println("----------------");
+		myOutput.add(output);
 	}
 	
 	public static String queryToString(List<StatementPattern> patterns) {

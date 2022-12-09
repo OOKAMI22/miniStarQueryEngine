@@ -63,7 +63,7 @@ public class JenaTest {
     }
 
 
-    public String getErrors(ArrayList<Boolean> comparaison){
+    public String getErrors(List<Boolean> comparaison){
         Integer cpt = 0;
 
         for (Boolean bool : comparaison){
