@@ -51,7 +51,8 @@ final class Main {
 	/**
 	 * Fichier contenant les requêtes sparql
 	 */
-	static String queryFile = workingDir + "sample_query.queryset";
+	//static String queryFile = workingDir + "sample_query.queryset";
+	static String queryFile = workingDir + "STAR_ALL_workload.queryset";
 
 	/**
 	 * Fichier contenant des données rdf
@@ -161,6 +162,10 @@ final class Main {
 				jenaOutput.add(output);
 			}
 			System.out.println(jenaTest.getErrors(jenaTest.CompareWithJena(jenaOutput,myOutput)));
+			System.out.println(jenaTest.CompareWithJena(jenaOutput,myOutput));
+			//System.out.println("myOutPut "+myOutput.toString() );
+			//System.out.println("jenOutPut "+jenaOutput.toString() );
+			//System.out.println(myOutput.get(0).contains(jenaOutput.get(0).get(0)));
 		}
 		long stopTimeJena = System.nanoTime();
 		float timeJena = (float)(stopTimeJena - startTimeJena)/1000000;
@@ -244,7 +249,7 @@ final class Main {
 			mrh.hex.dico.printDico();
 			//System.out.println("SPO dans parse DATA"+mrh.hex.SPO.toString());
 			
-			mrh.hex.printAllIndexes();
+			//mrh.hex.printAllIndexes();
 
 		}
 	}

@@ -16,8 +16,9 @@ import java.util.stream.Stream;
 public class MainTest {
     static final String baseURI = null;
     static final String workingDir = "data/";
-    static String queryFile = "nomfichier queries";
+    static String queryFile = workingDir + "STAR_ALL_workload.queryset";
     static String dataFile = workingDir + "100K.nt";
+
 
 
     private static ArrayList<String> parseQueries( String queryLink ) throws FileNotFoundException, IOException {

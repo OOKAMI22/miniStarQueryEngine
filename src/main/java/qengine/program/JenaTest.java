@@ -45,14 +45,19 @@ public class JenaTest {
         for(int i = 0; i<jenaOutput.size();i++){
             tmp = false;
             if (jenaOutput.get(i).size() == myOutput.get(i).size()) {
-                for (int j = 0; j < jenaOutput.get(i).size(); i++) {
+                if(jenaOutput.get(i).size() == 0){
+                    tmp = true;
+                }
+                int j = 0;
+                while ( (j < jenaOutput.get(i).size()) && (tmp==false) ) {
 
-                    if (myOutput.contains(jenaOutput.get(i).get(j))) {
+                    if (myOutput.get(i).contains(jenaOutput.get(i).get(j))) {
                         tmp  = true;
+                        j++;
                     }
                     else{
                         tmp = false;
-                        break;
+                        j = jenaOutput.get(i).size() + 10;
                     }
                 }
             }

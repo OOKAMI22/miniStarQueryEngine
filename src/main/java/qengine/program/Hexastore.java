@@ -31,17 +31,17 @@ public class Hexastore {
 	
 	public void printAllIndexes() {
 		System.out.println("SPO :");
-		//System.out.println(this.SPO.mapStringSort(this.dico.cpt));
-		System.out.println("SOP :");
+		System.out.println(this.SPO.mapStringSort(this.dico.cpt));
+		//System.out.println("SOP :");
 		//System.out.println(this.SOP.mapStringSort(this.dico.cpt));
-		System.out.println("PSO :");
+		//System.out.println("PSO :");
 		//System.out.println(this.PSO.mapStringSort(this.dico.cpt));
-		System.out.println("POS :");
+		//System.out.println("POS :");
 		//System.out.println(this.POS.mapStringSort(this.dico.cpt));
-		System.out.println("OSP :");
+		//System.out.println("OSP :");
 		//System.out.println(this.OSP.mapStringSort(this.dico.cpt));
 		System.out.println("OPS");
-		//System.out.println(this.OPS.mapStringSort(this.dico.cpt));
+		System.out.println(this.OPS.mapStringSort(this.dico.cpt));
 		
 	}
 		
